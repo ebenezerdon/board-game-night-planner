@@ -1,0 +1,40 @@
+/* Global styles for Board Night Planner */
+:root {
+  --bg: #F6F4EE;
+  --ink: #0F172A;
+  --accent: #0C4A6E; /* sky-900 */
+  --accent-2: #FF6A5A; /* coral */
+  --focus: rgba(56, 189, 248, 0.35); /* sky-400 */
+}
+
+html:focus-within { scroll-behavior: smooth; }
+
+body { background: var(--bg); color: var(--ink); }
+
+/***** Micro-interactions *****/
+.card:hover { transform: translateY(-2px); transition: transform 200ms ease, box-shadow 200ms ease; }
+.card:active { transform: translateY(0); }
+
+.btn-primary, .btn-secondary, .btn-soft, .btn-danger { transition: transform 120ms ease; }
+.btn-primary:active, .btn-secondary:active, .btn-soft:active, .btn-danger:active { transform: translateY(1px); }
+
+/* Modal helpers */
+#modal-results[aria-hidden="true"] { display: none; }
+
+/* Accessibility: prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
+}
+
+/* Utility for player color dot */
+.player-dot { display: inline-block; width: 0.75rem; height: 0.75rem; border-radius: 9999px; box-shadow: 0 0 0 2px #ffffff; }
+
+/* Clamp long text in cards */
+.clamp-1 { display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; }
+
+/* Session status tag colors */
+.status-scheduled { background: #E0F2FE; color: #075985; }
+.status-completed { background: #FEE2E2; color: #7F1D1D; }
+
+/* Search highlight */
+mark.search-hit { background: #FEF3C7; color: inherit; padding: 0 2px; border-radius: 3px; }
